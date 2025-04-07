@@ -52,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         }
 
+
         try {
 
             // Faz a inserção no banco de dados
@@ -60,24 +61,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt = $conexao->prepare($insert);
             $stmt->bind_param("ssss", $nome, $sobrenome, $email, $senha_hash);
 
+            // Se funcionar a inserção no banco ele retorna para a tela do index falando que funcionou, se não ele retorna erro
             if ($stmt->execute()) {
                 $_SESSION['resposta'] = "Usuário cadastrado com sucesso!";
-                header("Location: ../../index.php");
+                header("Location: ../signup.php");
                 exit;
             } else {
                 $_SESSION['resposta'] = "Usuário deu erro!";
-                header("Location: ../../index.php");
+                header("Location: ../signup.php");
                 exit;
             }
         } catch (Exception $erro_email) {
 
+            // Caso houver erro de email duplicado código 1062 ele retorna erro
             if ($erro_email->getCode() == 1062) {
                 $_SESSION['resposta'] = "Email já cadastrado!";
                 header("Location: ../signup.php");
                 exit;
             } else {
                 $_SESSION['resposta'] = "Erro ao cadastrar usuário!";
-                header("Location: ../../index.php");
+                header("Location: ../signup.php");
                 exit;
             }
         }
@@ -89,4 +92,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 header("Location: ../signup.php");
+$conexao->close();
 exit;
