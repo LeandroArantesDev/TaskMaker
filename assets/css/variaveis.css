@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
 :root {
     /* Variáveis Sign-up */
 
-    --background-color-signup: rgb(233, 246, 255);
-    --background-color-form-signup: rgb(218, 240, 255);
+    --background-color-signup: rgb(225, 225, 225);
+    --background-color-form-signup: rgb(247, 252, 255);
 
     /* Variáveis Sign-up */
 }
