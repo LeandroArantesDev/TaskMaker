@@ -118,4 +118,37 @@
 
 
     /* Variáveis Sign-up */
+
+
+    /* Variáveis Index  */
+
+    --background-color-index-body: #E9ECEF;
+    --background-color-index-header: #ffffff;
+    --font-color-index-header: #673ab7;
+    --font-color-index-header-btncadastro: #ffffff;
+    --background-color-index-header-btncadastro: #673ab7;
+    --background-color-index-header-btncadastro-hover: #522e93;
+
+
+
+    /* Input */
+
+    --background-color-index-input: #DEE2E6;
+    --font-size-index-input: 1.5rem;
+    --font-color-index-input: #212529;
+    --font-color-index-input-focus: #673ab7;
+    --font-color-index-input-placeholder: #495057;
+    --font-size-index-input-focus: 1.5rem;
+    --outline-index-input-focus: 1px solid #673ab7;
+    --font-size-index-input-placeholder: 1.5rem;
+    --font-color-index-h1: #673ab7;
+
+    /* Botão */
+
+    --background-color-index-button: #673ab7;
+    --background-color-index-button-hover: #522e93;
+    --font-color-index-button: #ffffff;
+    --font-size-index-button: 2rem;
+
+    /* Variáveis Index  */
 }

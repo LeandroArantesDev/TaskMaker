@@ -1,0 +1,193 @@
+@import url('variaveis.css');
+
+html {
+    font-size: var(--font-size-html);
+}
+
+body {
+    background-color: var(--background-color-index-body);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--background-color-index-header);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: 0.5s;
+
+    &:hover {
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    & .interface {
+        max-width: 128rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                width: 15rem;
+                height: 5rem;
+            }
+        }
+
+        .links {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+
+            & a {
+                text-decoration: none;
+                color: var(--font-color-index-header);
+                font-size: 2rem;
+                padding: 2rem 3rem;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                transition: 0.5s;
+                font-family: "Oswald", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            & .btn-cadastro {
+                background-color: var(--background-color-index-header-btncadastro);
+                color: var(--font-color-index-header-btncadastro);
+
+                &:hover {
+                    background-color: var(--background-color-index-header-btncadastro-hover);
+                }
+            }
+
+        }
+    }
+}
+
+main {
+    & .home {
+        height: 92vh;
+
+        & .interface {
+            max-width: 128rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+
+            & .conteudo {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 2em;
+
+                & h1 {
+                    width: 100%;
+                    color: var(--font-color-index-h1);
+                    text-align: left;
+                    font-size: 4rem;
+                    font-family: "Oswald", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 500;
+                    font-style: normal;
+                }
+
+                & p {
+                    font-family: "Inter", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 300;
+                    font-style: normal;
+                    width: 100%;
+                    margin: 0 0 0.5em 0;
+                    color: ;
+                    text-align: left;
+                    font-size: 20px;
+                }
+
+                & form {
+                    width: 100%;
+                    height: 10rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    & input {
+                        width: 60%;
+                        padding: 0.9rem 0.9rem 0.7rem 0.9rem;
+                        border: none;
+                        border-radius: 5px;
+                        background-color: var(--background-color-index-input);
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-size: var(--font-size-index-input);
+                        color: var(--font-color-index-input);
+
+                        &::placeholder {
+                            font-family: "Inter", sans-serif;
+                            font-optical-sizing: auto;
+                            font-weight: 300;
+                            font-style: normal;
+                            font-size: var(--font-size-index-input-placeholder);
+                            color: var(--font-color-index-input-placeholder);
+                        }
+
+                        &:focus {
+                            font-family: "Inter", sans-serif;
+                            font-optical-sizing: auto;
+                            font-weight: 300;
+                            font-style: normal;
+                            outline: var(--outline-index-input-focus);
+                            color: var(--font-color-index-input-focus);
+                            font-size: var(--font-size-index-input-focus);
+                        }
+                    }
+
+                    & button {
+                        font-family: "Oswald", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 500;
+                        font-style: normal;
+                        font-size: var(--font-size-index-button);
+                        padding: 1rem 2rem;
+                        border-radius: 5px;
+                        border: none;
+                        color: var(--font-color-index-button);
+                        background-color: var(--background-color-index-button);
+                        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+                        transition: 0.5s;
+
+                        &:hover {
+                            background-color: var(--background-color-index-button-hover);
+                        }
+                    }
+                }
+            }
+
+            & .imagem {
+                width: 40%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                & img {
+                    width: 50rem;
+                    height: 50rem;
+                }
+            }
+        }
+    }
+}

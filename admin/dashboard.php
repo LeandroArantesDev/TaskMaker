@@ -14,6 +14,7 @@ include("../auth/protect.php");
 <body>
     <p>cuzinho</p>
     <a href="../auth/logout.php">Sair</a>
+    <a href="profile.php">Perfil</a>
 </body>
 
 </html>
