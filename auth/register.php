@@ -19,10 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Recebendo os dados do formulários de criar usuário
     $nome = mb_convert_case(trim(strip_tags($_POST["nome"])), MB_CASE_TITLE, "UTF-8");
-    $sobrenome = mb_convert_case(trim(strip_tags($_POST["sobrenome"])), MB_CASE_TITLE, "UTF-8");
     $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $senha = trim(strip_tags($_POST["senha"]));
     $confirmarsenha = trim(strip_tags($_POST["confirmarsenha"]));
+
+    // ALTER TABLE usuarios
+    // DROP COLUMN sobrenome;
+
 
     // Verificar o email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -40,8 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
+    // Verifica o nome
+    $validarNome = validarNome($nome);
+
+    if ($validarNome !== true) {
+        $_SESSION['resposta'] = $validarNome;
+        header("Location: ../signup.php");
+        exit;
+    }
+
     // Verificar se os dados chegaram com sucesso para continuar
-    if (!empty($nome) && !empty($sobrenome) && !empty($email) && !empty($senha) && !empty($confirmarsenha)) {
+    if (!empty($nome) && !empty($email) && !empty($senha) && !empty($confirmarsenha)) {
 
         // Verificar se as senhas são iguais e criptografa-la
         if ($senha === $confirmarsenha) {
@@ -56,10 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         try {
 
             // Faz a inserção no banco de dados
-            $insert = $insert = "INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES (?,?,?,?)";;
+            $insert = "INSERT INTO usuarios (nome, email, senha) VALUES (?,?,?)";
 
             $stmt = $conexao->prepare($insert);
-            $stmt->bind_param("ssss", $nome, $sobrenome, $email, $senha_hash);
+            $stmt->bind_param("sss", $nome, $email, $senha_hash);
 
             // Se funcionar a inserção no banco ele retorna para a tela do index falando que funcionou, se não ele retorna erro
             if ($stmt->execute()) {
@@ -73,15 +85,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         } catch (Exception $erro_email) {
 
-            // Caso houver erro de email duplicado código 1062 ele retorna erro
-            if ($erro_email->getCode() == 1062) {
-                $_SESSION['resposta'] = "Email já cadastrado!";
-                header("Location: ../signup.php");
-                exit;
-            } else {
-                $_SESSION['resposta'] = "Erro ao cadastrar usuário!";
-                header("Location: ../signup.php");
-                exit;
+            // Caso houver erro ele retorna
+            switch ($erro_email->getCode()) {
+                // erro de email duplicado código 1062
+                case 1062:
+                    $_SESSION['resposta'] = "Email já cadastrado!";
+                    header("Location: ../signup.php");
+                    exit;
+
+                    // erro de quantidade de paramêtros erro
+                case 1136:
+                    $_SESSION['resposta'] = "Quantidade de dados inseridos inválida!";
+                    header("Location: ../signup.php");
+                    exit;
+
+                default:
+                    $_SESSION['resposta'] = "error" . $erro_email->getCode();
+                    header("Location: ../signup.php");
+                    exit;
             }
         }
     } else {
@@ -93,4 +114,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 header("Location: ../signup.php");
 $conexao->close();
+$stmt = null;
 exit;

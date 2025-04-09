@@ -12,7 +12,7 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color-signup-body);
+    background-color: var(--background-color-signin-body);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +20,8 @@ body {
 
     & form {
         width: 40rem;
-        height: 50rem;
-        background-color: var(--background-color-signup-form);
+        height: 40rem;
+        background-color: var(--background-color-signin-form);
         border-radius: 7px;
         overflow: hidden;
         display: flex;
@@ -36,8 +36,8 @@ body {
             font-optical-sizing: auto;
             font-weight: 500;
             font-style: normal;
-            color: var(--font-color-signup-form-p);
-            font-size: var(--font-size-signup-form-p);
+            color: var(--font-color-signin-form-p);
+            font-size: var(--font-size-signin-form-p);
             margin: 1rem 0;
         }
 
@@ -53,8 +53,8 @@ body {
                 font-optical-sizing: auto;
                 font-weight: 300;
                 font-style: normal;
-                font-size: var(--font-size-signup-label);
-                color: var(--font-color-signup-label);
+                font-size: var(--font-size-signin-label);
+                color: var(--font-color-signin-label);
                 padding: 0.2rem;
             }
 
@@ -63,21 +63,21 @@ body {
                 padding: 0.9rem 0.9rem 0.7rem 0.9rem;
                 border: none;
                 border-radius: 5px;
-                background-color: var(--background-color-signup-input);
+                background-color: var(--background-color-signin-input);
                 font-family: "Inter", sans-serif;
                 font-optical-sizing: auto;
                 font-weight: 300;
                 font-style: normal;
-                font-size: var(--font-size-signup-input);
-                color: var(--font-color-signup-input);
+                font-size: var(--font-size-signin-input);
+                color: var(--font-color-signin-input);
 
                 &::placeholder {
                     font-family: "Inter", sans-serif;
                     font-optical-sizing: auto;
                     font-weight: 300;
                     font-style: normal;
-                    font-size: var(--font-size-signup-input-placeholder);
-                    color: var(--font-color-signup-input-placeholder);
+                    font-size: var(--font-size-signin-input-placeholder);
+                    color: var(--font-color-signin-input-placeholder);
                 }
 
                 &:focus {
@@ -85,9 +85,9 @@ body {
                     font-optical-sizing: auto;
                     font-weight: 300;
                     font-style: normal;
-                    outline: var(--outline-signup-input-focus);
-                    color: var(--font-color-signup-input-focus);
-                    font-size: var(--font-size-signup-input-focus);
+                    outline: var(--outline-signin-input-focus);
+                    color: var(--font-color-signin-input-focus);
+                    font-size: var(--font-size-signin-input-focus);
                 }
             }
         }
@@ -97,18 +97,18 @@ body {
             font-optical-sizing: auto;
             font-weight: 500;
             font-style: normal;
-            font-size: var(--font-size-signup-button);
+            font-size: var(--font-size-signin-button);
             padding: 1rem 5rem;
             border-radius: 5px;
             border: none;
-            color: var(--font-color-signup-button);
-            background-color: var(--background-color-signup-button);
+            color: var(--font-color-signin-button);
+            background-color: var(--background-color-signin-button);
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             margin-top: 2rem;
             transition: 0.7s;
 
             &:hover {
-                background-color: var(--background-color-signup-button-hover);
+                background-color: var(--background-color-signin-button-hover);
             }
         }
     }
