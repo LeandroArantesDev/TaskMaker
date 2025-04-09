@@ -17,6 +17,10 @@ header {
     top: 0;
     z-index: 100;
     transition: 0.5s;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
         box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
@@ -28,6 +32,8 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
+        height: 7rem;
 
         & .logo {
             display: flex;
@@ -44,20 +50,22 @@ header {
             display: flex;
             align-content: center;
             justify-content: center;
+            height: 7rem;
 
             & a {
                 text-decoration: none;
                 color: var(--font-color-index-header);
                 font-size: 2rem;
-                padding: 2rem 3rem;
+                padding: 0rem 3rem;
                 display: flex;
-                align-content: center;
+                align-items: center;
                 justify-content: center;
                 transition: 0.5s;
                 font-family: "Oswald", sans-serif;
                 font-optical-sizing: auto;
                 font-weight: 500;
                 font-style: normal;
+                height: 100%;
             }
 
             & .btn-cadastro {
@@ -75,7 +83,7 @@ header {
 
 main {
     & .home {
-        height: 92vh;
+        height: calc(100vh - 7rem);
 
         & .interface {
             max-width: 128rem;
