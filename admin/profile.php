@@ -3,7 +3,7 @@ include("../auth/protect.php");
 include("../database/utils/conexao.php");
 $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sha256', random_bytes(32));
 
-$select = "SELECT emailverificado FROM usuarios WHERE email = ?";
+$select = "SELECT email_confirmado FROM usuarios WHERE email = ?";
 $stmt = $conexao->prepare($select);
 $stmt->bind_param("s", $_SESSION["email"]);
 $stmt->execute();
@@ -12,7 +12,6 @@ $stmt->fetch();
 
 $conexao->close();
 $stmt = null;
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -39,7 +38,6 @@ $stmt = null;
             <label for="email">E-mail</label>
             <input type="email" name="email" id="email" required placeholder="Digite seu email"
                 value="<?= $_SESSION["email"] ?>">
-            <span><?= $emailconfirmado == 0 ? "Email não verificado" : "Email verificado" ?></span>
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
@@ -56,8 +54,22 @@ $stmt = null;
         </div>
         <button type="submit">Registrar-se</button>
     </form>
+    <div>
+        <?php if ($emailconfirmado == 0) { ?>
+        <span>Email não verificado!</span>
+        <form action="../auth/generate_confirmation_code.php" method="post">
+            <input type="hidden" name="_csrf" value="<?php echo htmlentities($_SESSION['_csrf']) ?>">
+            <button type="submit">Verificar E-mail</button>
+        </form>
+        <?php } else { ?>
+        <span>Email verificado!</span>
+        <?php }?>
+    </div>
 
     <a href="../auth/logout.php">Sair</a>
+
+
+
 
     <?php include("../include/response_message.php"); ?>
 </body>
