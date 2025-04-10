@@ -22,7 +22,10 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
             <input type="email" name="email" id="email" required placeholder="Digite seu email">
         </div>
         <div class="form-group">
-            <label for="senha">Senha</label>
+            <div class="esqueceusenha">
+                <label for="senha">Senha</label>
+                <p><a href="auth/recover_password.php">Esqueceu a senha?</a></p>
+            </div>
             <input type="password" name="senha" id="senha" required
                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}"
                 title="A senha deve ter no mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos."
@@ -30,7 +33,6 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
         </div>
         <button type="submit">Entrar</button>
         <nav class="links-group">
-            <p>Esqueceu a senha?<a href="auth/recover_password.php">Trocar senha</a></p>
             <p>Não possui conta? <a href="#">Cadastrar-se</a></p>
         </nav>
     </form>

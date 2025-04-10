@@ -22,6 +22,7 @@ $stmt = null;
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <link rel="stylesheet" href="../assets/css/profile.css">
     <title>TaskMaker | Perfil</title>
 </head>
