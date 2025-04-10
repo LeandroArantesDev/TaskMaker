@@ -7,7 +7,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/04/2025 às 17:57
+-- Tempo de geração: 10/04/2025 às 18:28
 -- Versão do servidor: 11.4.5-MariaDB-log
 -- Versão do PHP: 8.4.4
 
@@ -68,17 +68,19 @@ CREATE TABLE `usuarios` (
   `senha` varchar(255) NOT NULL,
   `grupo_id` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1,
-  `emailverificado` tinyint(4) DEFAULT 0
+  `email_confirmado` tinyint(1) DEFAULT 0,
+  `codigo_confirmacao` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `grupo_id`, `status`, `emailverificado`) VALUES
-(1, 'Admin', 'adm@adm.com', '123', NULL, 1, 0),
-(2, 'Leandro', 'leandro.arantes0610@gmail.com', '$2y$12$u0zZyX36n/uHxD4PWngFY.20gOsUXus6Hb/U7znMiBNyaX59/TFcG', NULL, 1, 0),
-(5, 'Giulia Batista Miguel Isola', 'giulia@gmail.com', '$2y$12$zO6UN5c8jHpv/xuDQVsacu..q0J.Aj6t6exvV.1Al18tDg76RfAmq', NULL, 1, 0);
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `grupo_id`, `status`, `email_confirmado`, `codigo_confirmacao`) VALUES
+(1, 'Admin', 'adm@adm.com', '123', NULL, 1, 0, NULL),
+(2, 'Leandro', 'leandro.arantes0610@gmail.com', '$2y$12$u0zZyX36n/uHxD4PWngFY.20gOsUXus6Hb/U7znMiBNyaX59/TFcG', NULL, 1, 1, NULL),
+(5, 'Giulia Batista Miguel Isola', 'giulia@gmail.com', '$2y$12$zO6UN5c8jHpv/xuDQVsacu..q0J.Aj6t6exvV.1Al18tDg76RfAmq', NULL, 1, 1, NULL),
+(6, 'Walysson Ribeiro Rosa', 'walysson@gmail.com', '$2y$12$516UmglQfdYkWbjpIC1y/O1wQjbyVy6Ltji5AZ39NoMeQebvvHh9S', NULL, 1, 0, '320498');
 
 --
 -- Índices para tabelas despejadas
@@ -127,7 +129,7 @@ ALTER TABLE `tarefas`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para tabelas despejadas
