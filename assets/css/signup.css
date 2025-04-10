@@ -1,7 +1,53 @@
-@import url('variaveis.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
 
-* {
-    /* outline: 1px solid red; */
+:root {
+    /* Variaveis Globais */
+
+    /* html */
+
+    /* 62.5% = 10px */
+    /* 75% = 12px  */
+    /* 93.75 = 15px */
+
+    --font-size-html: 62.5%;
+
+    /* Variaveis Globais */
+
+    /* Variáveis Sign-up */
+
+    /* Body */
+    --background-color-signup-body: #DEE2E6;
+
+    /* Formulário */
+    --background-color-signup-form: #F8F9FA;
+    --font-color-signup-form-p: #212529;
+    --font-size-signup-form-p: 2.25rem;
+
+    /* Label */
+    --font-size-signup-label: 1.5rem;
+    --font-color-signup-label: #212529;
+
+    /* Input */
+    --background-color-signup-input: #DEE2E6;
+    --font-size-signup-input: 1.5rem;
+    --font-color-signup-input: #212529;
+    --font-color-signup-input-focus: #673ab7;
+    --font-color-signup-input-placeholder: #495057;
+    --font-size-signup-input-focus: 1.5rem;
+    --outline-signup-input-focus: 1px solid #673ab7;
+    --font-size-signup-input-placeholder: 1.5rem;
+
+    /* Botão */
+    --background-color-signup-button: #673ab7;
+    --background-color-signup-button-hover: #522e93;
+    --font-color-signup-button: #ffffff;
+    --font-size-signup-button: 1.7rem;
+
+    /* links-group */
+    --font-size-linkgroup: 1.5rem;
+    --font-color-link-linkgroup: #673ab7;
+
+    /* Variáveis Sign-up */
 }
 
 html {
@@ -109,6 +155,28 @@ body {
 
             &:hover {
                 background-color: var(--background-color-signup-button-hover);
+            }
+        }
+
+        .links-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            & p {
+                font-family: "Inter", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                font-size: var(--font-size-linkgroup);
+                text-align: center;
+                margin: 1rem 0rem 0rem 0rem;
+
+                & a {
+                    text-decoration: none;
+                    color: var(--font-color-link-linkgroup);
+                }
             }
         }
     }

@@ -29,6 +29,10 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
                 placeholder="Digite sua Senha">
         </div>
         <button type="submit">Entrar</button>
+        <nav class="links-group">
+            <p>Esqueceu a senha?<a href="auth/recover_password.php">Trocar senha</a></p>
+            <p>Não possui conta? <a href="#">Cadastrar-se</a></p>
+        </nav>
     </form>
 
     <?php include("include/response_message.php"); ?>

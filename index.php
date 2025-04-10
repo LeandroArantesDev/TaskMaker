@@ -27,7 +27,7 @@
                 <div class="conteudo">
                     <h1>Capture, organize e enfrente suas tarefas em qualquer lugar.</h1>
                     <p>Escape da desordem e aumente sua produtividade com Taskmaker.</p>
-                    <form action="pages/cadastro.php" method="post">
+                    <form action="signup.php" method="post">
                         <input type="email" name="email" id="email" placeholder="E-mail">
                         <button type="submit">Cadastre-se - É gratís!</button>
                     </form>

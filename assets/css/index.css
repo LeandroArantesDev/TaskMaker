@@ -1,4 +1,4 @@
-@import url('variaveis.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
 
 html {
     font-size: var(--font-size-html);
@@ -9,6 +9,52 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+:root {
+    /* Variaveis Globais */
+
+    /* html */
+
+    /* 62.5% = 10px */
+    /* 75% = 12px  */
+    /* 93.75 = 15px */
+
+    --font-size-html: 62.5%;
+
+    /* Variaveis Globais */
+
+    /* Variáveis Index  */
+
+    --background-color-index-body: #E9ECEF;
+    --background-color-index-header: #ffffff;
+    --font-color-index-header: #673ab7;
+    --font-color-index-header-btncadastro: #ffffff;
+    --background-color-index-header-btncadastro: #673ab7;
+    --background-color-index-header-btncadastro-hover: #522e93;
+
+
+
+    /* Input */
+
+    --background-color-index-input: #DEE2E6;
+    --font-size-index-input: 1.5rem;
+    --font-color-index-input: #212529;
+    --font-color-index-input-focus: #673ab7;
+    --font-color-index-input-placeholder: #495057;
+    --font-size-index-input-focus: 1.5rem;
+    --outline-index-input-focus: 1px solid #673ab7;
+    --font-size-index-input-placeholder: 1.5rem;
+    --font-color-index-h1: #673ab7;
+
+    /* Botão */
+
+    --background-color-index-button: #673ab7;
+    --background-color-index-button-hover: #522e93;
+    --font-color-index-button: #ffffff;
+    --font-size-index-button: 2rem;
+
+    /* Variáveis Index  */
 }
 
 header {

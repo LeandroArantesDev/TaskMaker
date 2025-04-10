@@ -24,7 +24,8 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
         </div>
         <div class="form-group">
             <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" required placeholder="Digite seu email">
+            <input type="email" name="email" id="email" required placeholder="Digite seu email"
+                value="<?= isset($_POST["email"]) ? $_POST["email"] : "" ?>">
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
@@ -40,6 +41,10 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
                 placeholder="Digite a senha novamente">
         </div>
         <button type="submit">Registrar-se</button>
+        <nav class="links-group">
+            <p>Esqueceu a senha?<a href="#">Trocar senha</a></p>
+            <p>Não possui conta? <a href="#">Cadastrar-se</a></p>
+        </nav>
     </form>
 
     <?php include("include/response_message.php"); ?>
