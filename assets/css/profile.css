@@ -195,32 +195,150 @@ main {
 
             & .container-nome {
                 width: 100%;
-                background-color: red;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                padding: 1rem;
+                border-radius: 5px;
 
-                & .info {
+                & .informacoes {
                     display: flex;
-                    align-content: center;
-                    justify-content: center;
+                    align-items: center;
+                    justify-content: left;
+                    gap: 1rem;
 
-                    & .info2 {
+
+                    & i {
+                        font-size: 4rem;
+                    }
+
+                    & .nome {
                         display: flex;
                         align-content: center;
                         justify-content: center;
                         flex-direction: column;
+
+                        & p {
+                            font-family: "Inter", sans-serif;
+                            font-optical-sizing: auto;
+                            font-weight: 300;
+                            font-style: normal;
+                            font-size: 2rem;
+                            color: var(--font-color-p);
+                            padding: 0.2rem;
+                            margin: 0;
+                        }
                     }
+                }
+
+                & .button {
+                    border: none;
+                    background-color: transparent;
+                    font-size: 3rem;
+                }
+
+                &:hover {
+                    background-color: #DEE2E6;
                 }
             }
 
             & .container-email {
                 width: 100%;
-                background-color: red;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+                border-radius: 5px;
 
-                & .container-info {}
+                & .informacoes {
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    gap: 1rem;
 
-                & .container-button {}
+
+                    & i {
+                        font-size: 4rem;
+                    }
+
+                    & .nome {
+                        display: flex;
+                        align-content: center;
+                        justify-content: center;
+                        flex-direction: column;
+
+                        & p {
+                            font-family: "Inter", sans-serif;
+                            font-optical-sizing: auto;
+                            font-weight: 300;
+                            font-style: normal;
+                            font-size: 2rem;
+                            color: var(--font-color-p);
+                            padding: 0.2rem;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                & .button {
+                    border: none;
+                    background-color: transparent;
+                    font-size: 3rem;
+                }
+
+                &:hover {
+                    background-color: #DEE2E6;
+                }
+            }
+
+        }
+
+        & .container-senha {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-radius: 5px;
+
+            & .informacoes {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                gap: 1rem;
+
+
+                & i {
+                    font-size: 4rem;
+                }
+
+                & .nome {
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    & p {
+                        font-family: "Inter", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-size: 2rem;
+                        color: var(--font-color-p);
+                        padding: 0.2rem;
+                        margin: 0;
+                    }
+                }
+            }
+
+            & .button {
+                border: none;
+                background-color: transparent;
+                font-size: 3rem;
+            }
+
+            &:hover {
+                background-color: #DEE2E6;
             }
         }
     }

@@ -48,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Falar para a biblioteca que eu vou trabalhar com SMTP Ativo
             $mail->SMTPAuth = true;
             // Configurar email que vai mandar a mensagem
-            $mail->Username = "taskmaker.suporte@gmail.com";
+            $mail->Username = "";
             // Configurar Senha???
-            $mail->Password = "oxxi luqu mlsg buej";
+            $mail->Password = "";
             // Configurar Porta que o gmail usa
             $mail->Port = "587";
 

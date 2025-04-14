@@ -48,31 +48,21 @@ $stmt = null;
                 <p>Detalhes da conta</p>
             </div>
             <div class="container">
-                <form action="#" method="post" class="container-nome">
-
-                    <div class="info">
+                <div class="container-nome">
+                    <div class="informacoes">
                         <i class="fa-solid fa-circle-user"></i>
-                        <div class="info2">
+                        <div class="nome">
                             <p>Nome</p>
-                            <label for="nome">Nome</label>
-                            <input type="text" name="nome" id="nome" required pattern="[A-Za-zÀ-ÿ\s]{2,}"
-                                title="Digite um nome válido (apenas letras e espaços)" placeholder="Digite seu nome"
-                                value="<?= $_SESSION["nome"] ?>">
+                            <p><?= $_SESSION["nome"] ?></p>
                         </div>
                     </div>
                     <div class="button">
-                        <button type="submit"><i class="fa-solid fa-chevron-right"></i></button>
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
-                </form>
-
-
-
-
-
-
+                </div>
 
                 <div class="container-email">
-                    <div class="container-info">
+                    <div class="informacoes">
                         <i class="fa-regular fa-envelope"></i>
                         <p>E-mail</p>
                         <p><?= $_SESSION["email"] ?></p>
@@ -88,63 +78,21 @@ $stmt = null;
                                 <span>Email verificado!</span>
                             <?php } ?>
                         </div>
-
                     </div>
-                    <div class="container-button">
-                        <i class="fa-regular fa-chevron-right"></i>
+                    <div class="button">
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 </div>
+
                 <div class="container-senha">
-                    <div class="container-info">
+                    <div class="informacoes">
                         <i class="fa-regular fa-lock"></i>
                         <p>Senha</p>
                         <p>********</p>
                     </div>
-                    <div class="container-button"></div>
-                </div>
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" required pattern="[A-Za-zÀ-ÿ\s]{2,}"
-                            title="Digite um nome válido (apenas letras e espaços)" placeholder="Digite seu nome"
-                            value="<?= $_SESSION["nome"] ?>">
+                    <div class="button">
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
-                    <form action="#" method="post">
-                        <p>Editar Perfil</p>
-                        <input type="hidden" name="_csrf" value="<?php echo htmlentities($_SESSION['_csrf']) ?>">
-
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" name="email" id="email" required placeholder="Digite seu email"
-                                value="<?= $_SESSION["email"] ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="senha">Senha</label>
-                            <input type="password" name="senha" id="senha" required
-                                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}"
-                                title="A senha deve ter no mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos."
-                                placeholder="Digite sua Senha">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confirmarsenha">Confirme sua senha</label>
-                            <input type="password" name="confirmarsenha" id="confirmarsenha" required
-                                placeholder="Digite a senha novamente">
-                        </div>
-                        <button type="submit">Registrar-se</button>
-                    </form>
-                </form>
-
-                <div>
-                    <?php if ($emailconfirmado == 0) { ?>
-                        <span>Email não verificado!</span>
-                        <form action="../auth/generate_confirmation_code.php" method="post">
-                            <input type="hidden" name="_csrf" value="<?php echo htmlentities($_SESSION['_csrf']) ?>">
-                            <button type="submit">Verificar E-mail</button>
-                        </form>
-                    <?php } else { ?>
-                        <span>Email verificado!</span>
-                    <?php } ?>
                 </div>
             </div>
         </div>
