@@ -33,7 +33,7 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
         </div>
         <button type="submit">Entrar</button>
         <nav class="links-group">
-            <p>Não possui conta? <a href="#">Cadastrar-se</a></p>
+            <p>Não possui conta? <a href="signup.php">Cadastrar-se</a></p>
         </nav>
     </form>
 
