@@ -27,6 +27,10 @@
 
     /* Formulário */
     --background-color-form: #F8F9FA;
+    --font-color-p: #212529;
+    --font-size-p: 2rem;
+    --font-color-h2: #212529;
+    --font-size-h2: 3rem;
     --font-color-form-p: #212529;
     --font-size-form-p: 2.25rem;
 
@@ -143,97 +147,80 @@ main {
     align-items: center;
     height: calc(100vh - 7rem);
 
-    & form {
-        width: 40rem;
-        height: 50 rem;
-        background-color: var(--background-color-form);
-        border-radius: 7px;
-        overflow: hidden;
+    & .interface {
+        max-width: 128rem;
+        margin: 0 auto;
         display: flex;
         align-items: center;
         flex-direction: column;
-        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
-        justify-content: center;
+        width: 100%;
+        height: 100%;
 
-        & p {
-            font-family: "Oswald", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-            color: var(--font-color-form-p);
-            font-size: var(--font-size-form-p);
-            margin: 1rem 0;
-        }
+        & .informacoes {
+            width: 100%;
 
-        & .form-group {
-            width: 35rem;
-            padding: 1rem;
-            display: flex;
-            align-items: baseline;
-            flex-direction: column;
+            & h2 {
+                font-family: "Oswald", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+                color: var(--font-color-h2);
+                font-size: var(--font-size-h2);
+                margin: 1rem 0;
+            }
 
-            & label {
+            & p {
                 font-family: "Inter", sans-serif;
                 font-optical-sizing: auto;
                 font-weight: 300;
                 font-style: normal;
-                font-size: var(--font-size-label);
-                color: var(--font-color-label);
+                font-size: var(--font-size-p);
+                color: var(--font-color-p);
                 padding: 0.2rem;
             }
-
-            & input {
-                width: 95%;
-                padding: 0.9rem 0.9rem 0.7rem 0.9rem;
-                border: none;
-                border-radius: 5px;
-                background-color: var(--background-color-input);
-                font-family: "Inter", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: 300;
-                font-style: normal;
-                font-size: var(--font-size-input);
-                color: var(--font-color-input);
-
-                &::placeholder {
-                    font-family: "Inter", sans-serif;
-                    font-optical-sizing: auto;
-                    font-weight: 300;
-                    font-style: normal;
-                    font-size: var(--font-size-input-placeholder);
-                    color: var(--font-color-input-placeholder);
-                }
-
-                &:focus {
-                    font-family: "Inter", sans-serif;
-                    font-optical-sizing: auto;
-                    font-weight: 300;
-                    font-style: normal;
-                    outline: var(--outline-input-focus);
-                    color: var(--font-color-input-focus);
-                    font-size: var(--font-size-input-focus);
-                }
-            }
         }
 
-        & button {
-            font-family: "Oswald", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 500;
-            font-style: normal;
-            font-size: var(--font-size-button);
-            padding: 1rem 5rem;
-            border-radius: 5px;
-            border: none;
-            color: var(--font-color-button);
-            background-color: var(--background-color-button);
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            margin-top: 2rem;
-            transition: 0.7s;
+        & .container {
+            width: 100%;
+            height: 50 rem;
+            background-color: var(--background-color-form);
+            border-radius: 7px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            justify-content: center;
 
-            &:hover {
-                background-color: var(--background-color-button-hover);
+            & .container-nome {
+                width: 100%;
+                background-color: red;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                & .info {
+                    display: flex;
+                    align-content: center;
+                    justify-content: center;
+
+                    & .info2 {
+                        display: flex;
+                        align-content: center;
+                        justify-content: center;
+                        flex-direction: column;
+                    }
+                }
+            }
+
+            & .container-email {
+                width: 100%;
+                background-color: red;
+
+                & .container-info {}
+
+                & .container-button {}
             }
         }
     }

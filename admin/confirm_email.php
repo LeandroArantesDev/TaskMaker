@@ -2,16 +2,6 @@
 include("../auth/protect.php");
 include("../database/utils/conexao.php");
 $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sha256', random_bytes(32));
-
-$select = "SELECT codigo_confirmacao FROM usuarios WHERE email = ?";
-$stmt = $conexao->prepare($select);
-$stmt->bind_param("s", $_SESSION["email"]);
-$stmt->execute();
-$stmt->bind_result($codigo_confirmacao);
-$stmt->fetch();
-
-$conexao->close();
-$stmt = null;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,7 +18,7 @@ $stmt = null;
             <form action="../auth/confirm_email.php" method="post">
                 <input type="hidden" name="_csrf" value="<?php echo htmlentities($_SESSION['_csrf']) ?>">
                 <h1>Informe o código que enviamos</h1>
-                <p>Informe o código <?= $codigo_confirmacao ?> para nos ajudar a proteger sua conta. O
+                <p>Informe o código enviado no seu email para nos ajudar a proteger sua conta. O
                     código será válido por 10 minutos após o envio.</p>
                 <input type="text" name="codigo_confirmacao" id="codigo_confirmacao">
                 <button type="submit">Enviar</button>
