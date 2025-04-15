@@ -1,5 +1,5 @@
 <?php
-include("../auth/protect.php");
+include("../auth/validar_sessao.php");
 ?>
 
 <!DOCTYPE html>

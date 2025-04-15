@@ -1,5 +1,5 @@
 <?php
-include("../../auth/protect.php");
+include("../auth/validar_sessao.php");
 include("../../database/utils/conexao.php");
 $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sha256', random_bytes(32));
 

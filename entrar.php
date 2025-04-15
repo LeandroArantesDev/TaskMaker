@@ -13,7 +13,7 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
 </head>
 
 <body>
-    <form action="auth/login.php" method="post">
+    <form action="auth/entrar.php" method="post">
         <p>Formulário de login</p>
         <input type="hidden" name="_csrf" value="<?php echo htmlentities($_SESSION['_csrf']) ?>">
         <div class="form-group">
