@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!isset($_POST["_csrf"]) || ($_POST["_csrf"] !== $_SESSION["_csrf"])) {
         $_SESSION['resposta'] = "CSRF Token ínvalido!";
         $_SESSION['_csrf'] = hash('sha256', random_bytes(32));
-        header("Location: ../signin.php");
+        header("Location: ../entrar.php");
         exit;
     }
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Verificar o email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['resposta'] = "Email inválido!";
-        header("Location: ../signin.php");
+        header("Location: ../entrar.php");
         exit;
     }
 
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($validarSenha !== true) {
         $_SESSION['resposta'] = $validarSenha;
-        header("Location: ../signin.php");
+        header("Location: ../entrar.php");
         exit;
     }
 
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             } else {
                 $_SESSION['resposta'] = "E-mail ou senha inválidos!";
-                header("Location: ../signin.php");
+                header("Location: ../entrar.php");
                 exit;
             }
         } catch (Exception $erro_email) {
@@ -70,12 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // erro de quantidade de paramêtros erro
                 case 1136:
                     $_SESSION['resposta'] = "Quantidade de dados inseridos inválida!";
-                    header("Location: ../signin.php");
+                    header("Location: ../entrar.php");
                     exit;
 
                 default:
                     $_SESSION['resposta'] = "error" . $erro_email->getCode();
-                    header("Location: ../signin.php");
+                    header("Location: ../entrar.php");
                     exit;
             }
         }
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['resposta'] = "Método de solicitação ínvalido!";
 }
 
-header("Location: ../signin.php");
+header("Location: ../entrar.php");
 $conexao->close();
 $stmt = null;
 exit;

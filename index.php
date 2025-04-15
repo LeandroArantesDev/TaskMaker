@@ -16,8 +16,8 @@
                 <img src="assets/images/img-logo.png" alt="Imagem da Logo do site">
             </div>
             <nav class="links">
-                <a href="signin.php">Entrar</a>
-                <a href="signup.php" class="btn-cadastro">Cadastrar-se</a>
+                <a href="entrar.php">Entrar</a>
+                <a href="cadastrar.php" class="btn-cadastro">Cadastrar-se</a>
             </nav>
         </div>
     </header>
@@ -27,7 +27,7 @@
                 <div class="conteudo">
                     <h1>Capture, organize e enfrente suas tarefas em qualquer lugar.</h1>
                     <p>Escape da desordem e aumente sua produtividade com Taskmaker.</p>
-                    <form action="signup.php" method="post">
+                    <form action="cadastrar.php" method="post">
                         <input type="email" name="email" id="email" placeholder="E-mail">
                         <button type="submit">Cadastre-se - É gratís!</button>
                     </form>

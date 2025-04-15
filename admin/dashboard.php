@@ -13,8 +13,8 @@ include("../auth/protect.php");
 
 <body>
     <p>cuzinho</p>
-    <a href="../auth/logout.php">Sair</a>
-    <a href="profile.php">Perfil</a>
+    <a href="../auth/sair.php">Sair</a>
+    <a href="usuario/perfil.php">Perfil</a>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
-include("../auth/protect.php");
-include("../database/utils/conexao.php");
+include("../../auth/protect.php");
+include("../../database/utils/conexao.php");
 $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sha256', random_bytes(32));
 
 $select = "SELECT email_confirmado FROM usuarios WHERE email = ?";
@@ -22,8 +22,8 @@ $stmt = null;
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
-    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="../../assets/css/perfil.css">
     <title>TaskMaker | Perfil</title>
 </head>
 
@@ -31,13 +31,13 @@ $stmt = null;
     <header>
         <div class="interface">
             <div class="logo">
-                <img src="../assets/images/img-logo.png" alt="Imagem da Logo do site">
+                <img src="../../assets/images/img-logo.png" alt="Imagem da Logo do site">
             </div>
             <div class="profile">
                 <i class="fa-solid fa-circle-user"> </i>
             </div>
             <nav class="profile-menu">
-                <a href="../auth/logout.php">Sair</a>
+                <a href="../../auth/sair.php">Sair</a>
             </nav>
         </div>
     </header>
@@ -97,7 +97,7 @@ $stmt = null;
             </div>
         </div>
     </main>
-    <?php include("../include/response_message.php"); ?>
+    <?php include("../../include/response_message.php"); ?>
 </body>
 
 </html>

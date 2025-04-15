@@ -8,7 +8,7 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/signup.css">
+    <link rel="stylesheet" href="assets/css/cadastrar.css">
     <title>TaskMaker | Cadastrar-se</title>
 </head>
 
@@ -42,7 +42,7 @@ $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sh
         </div>
         <button type="submit">Registrar-se</button>
         <nav class="links-group">
-            <p>Já possui uma conta?<a href="signin.php"> Entrar</a></p>
+            <p>Já possui uma conta?<a href="entrar.php"> Entrar</a></p>
         </nav>
     </form>
 
