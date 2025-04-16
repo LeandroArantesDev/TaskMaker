@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+:root {
+    /* Variaveis Globais */
+
+    /* html */
+
+    /* 62.5% = 10px */
+    /* 75% = 12px  */
+    /* 93.75 = 15px */
+
+    --font-size-html: 62.5%;
+
+    /* Variaveis Globais */
+
+    /* Variáveis Sign-in */
+
+    /* Body */
+
+    --background-color-signin-body: #DEE2E6;
+
+    /* Formulário */
+
+    --background-color-signin-form: #F8F9FA;
+    --font-color-signin-form-p: #212529;
+    --font-size-signin-form-p: 2.25rem;
+
+    /* Label */
+
+    --font-size-signin-label: 1.5rem;
+    --font-color-signin-label: #212529;
+
+    /* Input */
+
+    --background-color-signin-input: #DEE2E6;
+    --font-size-signin-input: 1.5rem;
+    --font-color-signin-input: #212529;
+    --font-color-signin-input-focus: #673ab7;
+    --font-color-signin-input-placeholder: #495057;
+    --font-size-signin-input-focus: 1.5rem;
+    --outline-signin-input-focus: 1px solid #673ab7;
+    --font-size-signin-input-placeholder: 1.5rem;
+
+    /* Botão */
+
+    --background-color-signin-button: #673ab7;
+    --background-color-signin-button-hover: #522e93;
+    --font-color-signin-button: #ffffff;
+    --font-size-signin-button: 1.7rem;
+
+
+    /* links-group */
+    --font-size-linkgroup: 1.5rem;
+    --font-color-link-linkgroup: #673ab7;
+
+    /* Variáveis Sign-in */
+}
+
+html {
+    font-size: var(--font-size-html);
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color-signin-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    & form {
+        width: 40rem;
+        height: 40rem;
+        background-color: var(--background-color-signin-form);
+        border-radius: 7px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        justify-content: center;
+
+        & p {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--font-color-signin-form-p);
+            font-size: var(--font-size-signin-form-p);
+            margin: 1rem 0;
+        }
+
+        & .form-group {
+            width: 35rem;
+            padding: 1rem;
+            display: flex;
+            align-items: baseline;
+            flex-direction: column;
+
+            & .esqueceusenha {
+                width: 100%;
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+
+                & p {
+                    font-family: "Inter", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-size: var(--font-size-linkgroup);
+                    text-align: center;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    & a {
+                        text-decoration: none;
+                        color: var(--font-color-link-linkgroup);
+                    }
+                }
+            }
+
+            & label {
+                font-family: "Inter", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                font-size: var(--font-size-signin-label);
+                color: var(--font-color-signin-label);
+                padding: 0.2rem;
+            }
+
+            & input {
+                width: 95%;
+                padding: 0.9rem 0.9rem 0.7rem 0.9rem;
+                border: none;
+                border-radius: 5px;
+                background-color: var(--background-color-signin-input);
+                font-family: "Inter", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                font-size: var(--font-size-signin-input);
+                color: var(--font-color-signin-input);
+
+                &::placeholder {
+                    font-family: "Inter", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-size: var(--font-size-signin-input-placeholder);
+                    color: var(--font-color-signin-input-placeholder);
+                }
+
+                &:focus {
+                    font-family: "Inter", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 300;
+                    font-style: normal;
+                    outline: var(--outline-signin-input-focus);
+                    color: var(--font-color-signin-input-focus);
+                    font-size: var(--font-size-signin-input-focus);
+                }
+            }
+        }
+
+        & button {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: var(--font-size-signin-button);
+            padding: 1rem 5rem;
+            border-radius: 5px;
+            border: none;
+            color: var(--font-color-signin-button);
+            background-color: var(--background-color-signin-button);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
+            transition: 0.7s;
+
+            &:hover {
+                background-color: var(--background-color-signin-button-hover);
+            }
+        }
+
+        .links-group {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            & p {
+                font-family: "Inter", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                font-size: var(--font-size-linkgroup);
+                text-align: center;
+                margin: 1rem 0rem 0rem 0rem;
+
+                & a {
+                    text-decoration: none;
+                    color: var(--font-color-link-linkgroup);
+                }
+            }
+        }
+    }
+}

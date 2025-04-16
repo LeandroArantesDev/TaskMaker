@@ -68,59 +68,70 @@ function gerarCodigo($email)
         return false;
     }
 
-    // código de 6 dígitos
-    $codigo_confirmacao_email = rand(100000, 999999);
+    $select = "SELECT email FROM usuarios WHERE email = ?";
+    $stmt = $conexao->prepare($select);
+    $stmt->bind_param("s", $email_sanitizado);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
 
-    if (preg_match('/^\d+$/', $codigo_confirmacao_email)) {
-        $mail = new PHPMailer(true);
+    if ($resultado->num_rows > 0) {
 
-        //mandar e-mail
-        try {
-            // Habilitar o modo debug
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            // Habilitar o SMTP
-            $mail->isSMTP(true);
-            // Configurar o Host
-            $mail->Host = 'smtp.gmail.com';
-            // Falar para a biblioteca que eu vou trabalhar com SMTP Ativo
-            $mail->SMTPAuth = true;
-            // Configurar email que vai mandar a mensagem
-            $mail->Username = "taskmaker.suporte@gmail.com";
-            // Configurar Senha???
-            $mail->Password = "xrmc twkh idoy yddg";
-            // Configurar Porta que o gmail usa
-            $mail->Port = "587";
+        // código de 6 dígitos
+        $codigo_confirmacao_email = rand(100000, 999999);
 
-            // Parte de configurar servidor configurada, agora é a mensagem
-            // Coloco o email que vai mandar
-            $mail->setFrom("taskmaker.suporte@gmail.com");
-            // Email que vai receber
-            $mail->addAddress($email);
-            // Habilitar html
-            $mail->isHTML(true);
-            // Adcionar Assunto
-            $mail->Subject = "Assunto";
-            // Adicionar corpo com hmtl ativo
-            $mail->Body = "O seu código de acesso é <strong>{$codigo_confirmacao_email}</strong>";
-            // Adcionar uma versão alternativa para algum cliente que não lê html
-            $mail->AltBody = "O seu código de acesso é {$codigo_confirmacao_email}";
-        } catch (Exception $e) {
-            return false;
+        if (preg_match('/^\d+$/', $codigo_confirmacao_email)) {
+            $mail = new PHPMailer(true);
+
+            //mandar e-mail
+            try {
+                // Habilitar o modo debug
+                //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                // Habilitar o SMTP
+                $mail->isSMTP(true);
+                // Configurar o Host
+                $mail->Host = 'smtp.gmail.com';
+                // Falar para a biblioteca que eu vou trabalhar com SMTP Ativo
+                $mail->SMTPAuth = true;
+                // Configurar email que vai mandar a mensagem
+                $mail->Username = "taskmaker.suporte@gmail.com";
+                // Configurar Senha???
+                $mail->Password = "xrmc twkh idoy yddg";
+                // Configurar Porta que o gmail usa
+                $mail->Port = "587";
+
+                // Parte de configurar servidor configurada, agora é a mensagem
+                // Coloco o email que vai mandar
+                $mail->setFrom("taskmaker.suporte@gmail.com");
+                // Email que vai receber
+                $mail->addAddress($email);
+                // Habilitar html
+                $mail->isHTML(true);
+                // Adcionar Assunto
+                $mail->Subject = "Assunto";
+                // Adicionar corpo com hmtl ativo
+                $mail->Body = "O seu código de acesso é <strong>{$codigo_confirmacao_email}</strong>";
+                // Adcionar uma versão alternativa para algum cliente que não lê html
+                $mail->AltBody = "O seu código de acesso é {$codigo_confirmacao_email}";
+            } catch (Exception $e) {
+                return false;
+            }
+
+            $codigo_confirmacao_email_hash = password_hash($codigo_confirmacao_email, PASSWORD_BCRYPT);
+
+            $update = "UPDATE usuarios SET codigo_confirmacao = ? WHERE email = ?";
+            $stmt = $conexao->prepare($update);
+            $stmt->bind_param("ss", $codigo_confirmacao_email_hash, $email);
+
+            // Se funcionar a inserção no banco ele retorna para a tela do profile falando que funcionou, se não ele retornaerro
+            if ($stmt->execute() and $mail->send()) {
+                return true;
+            } else {
+                return false;
+            }
+            $stmt = null;
         }
-
-        $codigo_confirmacao_email_hash = password_hash($codigo_confirmacao_email, PASSWORD_BCRYPT);
-
-        $update = "UPDATE usuarios SET codigo_confirmacao = ? WHERE email = ?";
-        $stmt = $conexao->prepare($update);
-        $stmt->bind_param("ss", $codigo_confirmacao_email_hash, $email);
-
-        // Se funcionar a inserção no banco ele retorna para a tela do profile falando que funcionou, se não ele retornaerro
-        if ($stmt->execute() and $mail->send()) {
-            return true;
-        } else {
-            return false;
-        }
-        $stmt = null;
+    } else {
+        return false;
     }
 }
 

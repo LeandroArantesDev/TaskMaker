@@ -16,7 +16,17 @@ use PHPMailer\PHPMailer\Exception;
 require_once("../database/utils/conexao.php");
 include("validacoes.php");
 
+// Verificação para ver se está vindo por POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Verificação do token CSRF
+    if (!isset($_POST["_csrf"]) || ($_POST["_csrf"] !== $_SESSION["_csrf"])) {
+        $_SESSION['resposta'] = "CSRF Token ínvalido!";
+        $_SESSION['_csrf'] = hash('sha256', random_bytes(32));
+        header("Location: ../recuperar_senha.php");
+        exit;
+    }
+
     $email = isset($_POST["email"]) ? $_POST["email"] : $_SESSION["email_recuperar_senha"];
     $etapa = $_POST["etapa"];
 
