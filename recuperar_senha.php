@@ -2,8 +2,6 @@
 session_start();
 $_SESSION['_csrf'] = (isset($_SESSION['_csrf'])) ? $_SESSION['_csrf'] : hash('sha256', random_bytes(32));
 $_SESSION["etapa"] = (isset($_SESSION["etapa"])) ? $_SESSION["etapa"] : 1;
-
-var_dump($_SESSION["etapa"]);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,9 +40,9 @@ var_dump($_SESSION["etapa"]);
             <input type="hidden" name="_csrf" value="<?php echo htmlentities($_SESSION['_csrf']) ?>">
             <input type="hidden" name="etapa" value="3">
             <label for="senha">Digite sua nova senha</label>
-            <input type="text" name="senha" id="senha">
+            <input type="password" name="senha" id="senha">
             <label for="confirmarsenha">Digite a senha novamente</label>
-            <input type="text" name="confirmarsenha" id="confirmarsenha">
+            <input type="password" name="confirmarsenha" id="confirmarsenha">
             <button type="submit">Trocar senha</button>
         </form>
     <?php endif;

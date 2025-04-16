@@ -4,7 +4,7 @@ session_start();
 require_once("../database/utils/conexao.php");
 
 // Incluindo o arquivo que contém as validações
-include_once("validation.php");
+include_once("validacoes.php");
 
 // Verificação para conferir se o método do formulário é POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
