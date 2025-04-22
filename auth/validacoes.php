@@ -196,3 +196,62 @@ function trocarSenha($senhain, $novasenha, $email)
     }
     $stmt = null;
 }
+
+function removerTarefa($id)
+{
+    $id = trim(strip_tags($id));
+    global $conexao;
+
+    $remove = "DELETE FROM tarefas WHERE id = ?";
+    $stmt = $conexao->prepare($remove);
+    $stmt->bind_param("i", $id);
+
+    //Se remover a tarefa retorna o resultado
+    if ($stmt->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+    $stmt = null;
+}
+
+function editarTarefa($id, $titulo, $descricao)
+{
+    $id = trim(strip_tags($id));
+    $titulo = trim(strip_tags($titulo));
+    $descricao = trim(strip_tags($descricao));
+    global $conexao;
+
+    $update = "UPDATE tarefas SET titulo = ?, descricao = ? WHERE id = ?";
+    $stmt = $conexao->prepare($update);
+    $stmt->bind_param("ssi", $titulo, $descricao, $id);
+
+    //Se remover a tarefa retorna o resultado
+    if ($stmt->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+    $stmt = null;
+}
+
+function criarTarefa($id, $status, $titulo, $descricao)
+{
+    $id = trim(strip_tags($id));
+    $status = trim(strip_tags($status));
+    $titulo = trim(strip_tags($titulo));
+    $descricao = trim(strip_tags($descricao));
+    global $conexao;
+
+    $insert = "INSERT INTO tarefas (titulo, descricao, status, usuario_id) VALUES (?,?,?,?)";
+    $stmt = $conexao->prepare($insert);
+    $stmt->bind_param("ssii", $titulo, $descricao, $status, $id);
+
+    //Se remover a tarefa retorna o resultado
+    if ($stmt->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+    $stmt = null;
+}

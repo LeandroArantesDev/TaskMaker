@@ -7,7 +7,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/04/2025 às 18:28
+-- Tempo de geração: 22/04/2025 às 15:57
 -- Versão do servidor: 11.4.5-MariaDB-log
 -- Versão do PHP: 8.4.4
 
@@ -53,7 +53,17 @@ CREATE TABLE `tarefas` (
   `status` tinyint(1) DEFAULT 0,
   `usuario_id` int(11) NOT NULL,
   `grupo_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ;
+
+--
+-- Despejando dados para a tabela `tarefas`
+--
+
+INSERT INTO `tarefas` (`id`, `titulo`, `descricao`, `data_criacao`, `data_conclusao`, `status`, `usuario_id`, `grupo_id`) VALUES
+(1, 'Estudar por 1 hora', 'Preciso estudar para a prova de portugues', '2025-04-22 13:21:05', NULL, 1, 2, NULL),
+(2, 'Preciso ir no mercado hoje', 'comprar:3 maionese2 ketchup5 pães1 kg de salsicha', '2025-04-22 13:22:43', NULL, 2, 2, NULL),
+(4, 'Ir na academia', 'malhar perna', '2025-04-22 15:50:03', NULL, 1, 2, NULL),
+(5, 'Mexer no site por 1 hora', 'está pronto o CRUD das tarefas', '2025-04-22 15:52:12', NULL, 3, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -69,7 +79,7 @@ CREATE TABLE `usuarios` (
   `grupo_id` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT 1,
   `email_confirmado` tinyint(1) DEFAULT 0,
-  `codigo_confirmacao` varchar(6) DEFAULT NULL
+  `codigo_confirmacao` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -78,9 +88,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `grupo_id`, `status`, `email_confirmado`, `codigo_confirmacao`) VALUES
 (1, 'Admin', 'adm@adm.com', '123', NULL, 1, 0, NULL),
-(2, 'Leandro', 'leandro.arantes0610@gmail.com', '$2y$12$u0zZyX36n/uHxD4PWngFY.20gOsUXus6Hb/U7znMiBNyaX59/TFcG', NULL, 1, 1, NULL),
-(5, 'Giulia Batista Miguel Isola', 'giulia@gmail.com', '$2y$12$zO6UN5c8jHpv/xuDQVsacu..q0J.Aj6t6exvV.1Al18tDg76RfAmq', NULL, 1, 1, NULL),
-(6, 'Walysson Ribeiro Rosa', 'walysson@gmail.com', '$2y$12$516UmglQfdYkWbjpIC1y/O1wQjbyVy6Ltji5AZ39NoMeQebvvHh9S', NULL, 1, 0, '320498');
+(2, 'Leandro', 'leandro.arantes0610@gmail.com', '$2y$12$hzsz.8UWqUHXf53v/t/msuxIbvznf/C4g//e12JiZSjzuKrkXW0dq', NULL, 1, 1, NULL),
+(5, 'Giulia Batista Miguel Isola', 'giulia@gmail.com', '$2y$12$zO6UN5c8jHpv/xuDQVsacu..q0J.Aj6t6exvV.1Al18tDg76RfAmq', NULL, 1, 0, NULL),
+(6, 'Walysson Ribeiro Rosa', 'walysson@gmail.com', '$2y$12$516UmglQfdYkWbjpIC1y/O1wQjbyVy6Ltji5AZ39NoMeQebvvHh9S', NULL, 1, 0, '$2y$12$g8ki9RQyAdOUq1tobJDEQe/8VGnuf/.YV9Q/aT8Oj5FdUse2aNG8u');
 
 --
 -- Índices para tabelas despejadas
