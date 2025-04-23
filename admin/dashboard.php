@@ -17,7 +17,8 @@ require_once("../database/utils/conexao.php");
 </head>
 
 <body>
-    <div class="naoiniciado">
+    <div class="container-lg">
+        <p>Tarefas não iniciadas</p>
         <a href="?criar=1&status=1"><i class="fa-solid fa-plus"></i></a>
         <?php
         // Preparar a consulta
@@ -49,6 +50,7 @@ require_once("../database/utils/conexao.php");
         ?>
     </div>
     <div class="emprogresso">
+    <p>Tarefas em progresso</p>
         <a href="?criar=1&status=2"><i class="fa-solid fa-plus"></i></a>
         <?php
         // Preparar a consulta
@@ -80,6 +82,7 @@ require_once("../database/utils/conexao.php");
         ?>
     </div>
     <div class="concluido">
+    <p>Tarefas concluídas</p>
         <a href="?criar=1&status=3"><i class="fa-solid fa-plus"></i></a>
         <?php
         // Preparar a consulta
