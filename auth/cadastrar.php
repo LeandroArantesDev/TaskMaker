@@ -4,7 +4,7 @@ session_start();
 require_once("../database/utils/conexao.php");
 
 // Incluindo o arquivo que contém as validações
-include_once("validation.php");
+include_once("validacoes.php");
 
 // Verificação para conferir se o método do formulário é POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Se funcionar a inserção no banco ele retorna para a tela do index falando que funcionou, se não ele retorna erro
             if ($stmt->execute()) {
                 $_SESSION['resposta'] = "Usuário cadastrado com sucesso!";
-                header("Location: ../cadastrar.php");
+                header("Location: ../entrar.php");
                 exit;
             } else {
                 $_SESSION['resposta'] = "Usuário deu erro!";

@@ -17,6 +17,17 @@ require_once("../database/utils/conexao.php");
 </head>
 
 <body>
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <img src="../assets/images/img-logo.png" alt="Imagem da Logo do site">
+            </div>
+            <nav class="links">
+                <a href="entrar.php">Entrar</a>
+                <a href="cadastrar.php" class="btn-cadastro">Cadastrar-se</a>
+            </nav>
+        </div>
+    </header>
     <div class="container-lg">
         <p>Tarefas não iniciadas</p>
         <a href="?criar=1&status=1"><i class="fa-solid fa-plus"></i></a>
@@ -50,7 +61,7 @@ require_once("../database/utils/conexao.php");
         ?>
     </div>
     <div class="emprogresso">
-    <p>Tarefas em progresso</p>
+        <p>Tarefas em progresso</p>
         <a href="?criar=1&status=2"><i class="fa-solid fa-plus"></i></a>
         <?php
         // Preparar a consulta
@@ -82,7 +93,7 @@ require_once("../database/utils/conexao.php");
         ?>
     </div>
     <div class="concluido">
-    <p>Tarefas concluídas</p>
+        <p>Tarefas concluídas</p>
         <a href="?criar=1&status=3"><i class="fa-solid fa-plus"></i></a>
         <?php
         // Preparar a consulta
